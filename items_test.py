@@ -4,6 +4,7 @@ testdata = [
     ('',{'name': {0: 'book', 1: 'ipad'}, 'price': {0: '1', 1: 4}}),
 ]
 
+items = Items() # keep this first
 
 @pytest.mark.parametrize("input, output", testdata)
 def get_items(input, output):
@@ -11,5 +12,5 @@ def get_items(input, output):
 
 
 @pytest.mark.parametrize("input, output", testdata)
-def get_items(input, output):
+def add_items(input, output):
     assert Items().add().to_dict() == output
