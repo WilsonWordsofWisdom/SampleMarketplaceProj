@@ -1,4 +1,5 @@
 import pytest
+import pandas as pd
 from items import Items
 testdata = [
     ({
@@ -11,12 +12,13 @@ testdata = [
 ]
 
 @pytest.mark.parametrize("input", testdata)
-def add_item(input):
-    Items = Items()
-    Items.add(input)
-    assert Items.df.tail(1).to_dict('r') == input
+def test_add_item(input):
+    items = Items()
+    items.add(input)
+    assert items.df.tail(1).to_dict('r')[0] == input
 
+@pytest.mark.parametrize("input", testdata)
+def test_get_items(input):
+    assert Items().get_items().to_dict() == pd.read_csv('Products.csv').to_dict()
 
-def get_items(input):
-    assert Items().get_items() == pd.read_csv('Products.csv')
 
