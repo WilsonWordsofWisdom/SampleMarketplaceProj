@@ -14,7 +14,7 @@ testdata = [
 @pytest.mark.parametrize("input", testdata)
 def test_add_item(input):
     items = Items()
-    items.add(input)
+    items.add(input, save=False)
     assert items.df.tail(1).to_dict('r')[0] == input
 
 @pytest.mark.parametrize("input", testdata)

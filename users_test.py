@@ -12,5 +12,5 @@ testdata = [
 @pytest.mark.parametrize('input', testdata)
 def test_register(input):
     users = Users()
-    users.register(input)
+    users.register(input, save=False)
     assert users.df.tail(1).to_dict('r')[0] == input
