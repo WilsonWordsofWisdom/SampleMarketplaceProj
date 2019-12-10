@@ -1,9 +1,16 @@
 import pandas as pd
+
 class Items:
+
     def __init__(self):
-        self.df = pd.DataFrame([('book', '1'), ('ipad', 4)], columns=['name', 'price'])
+        self.df = pd.read_csv('Products.csv')
+
     def add(self, item):
         self.df = self.df.append(pd.Series(item),ignore_index=True)
-    def get_items(self, fitler=None):
-        if fitler is None:
-            return self.df# .loc[name]
+
+    def get_items(self, filter_names=None):
+        if filter_names is None:
+            return self.df
+        else:
+            return df.loc[filter_names]
+        
