@@ -41,11 +41,13 @@ def list():
     return items.get_items().to_json(orient='records')
 
 @app.route('/add',methods=["POST"])
+@cross_origin()
+
 def add():
     data = request.get_json(force=True)
     # return 'Hello, World!'
     # data = request.get_json(force=True)
-    return items.add(data).to_json()
+    return items.add(data).to_json(orient='records')
     #return jsonify(response), 200
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
