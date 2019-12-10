@@ -6,11 +6,11 @@ from items import Items
 app = Flask(__name__)
 
 #add parse function to convert csv file to json obj
-with open('Products.csv') as f:
+with open('Products.csv') as listings:
     reader = csv.DictReader(f)
     rows = list(reader)
 
-with open('test.json', 'w') as f:
+with open('test.json', 'w') as listings:
     json.dump(rows, f)
 
 # listings = [
