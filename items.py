@@ -7,6 +7,7 @@ class Items:
 
     def add(self, item):
         self.df = self.df.append(pd.Series(item),ignore_index=True)
+        self.df.to_csv('Products.csv', index=False)
 
     def get_items(self, filter_names=None):
         if filter_names is None:
