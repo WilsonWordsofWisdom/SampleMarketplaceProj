@@ -47,7 +47,13 @@ def add():
     data = request.get_json(force=True)
     # return 'Hello, World!'
     # data = request.get_json(force=True)
+    ic(data)
     return items.add(data).to_json(orient='records')
     #return jsonify(response), 200
+
+@app.route("/invocations", methods=["POST"])
+@cross_origin()
+def predict():
+    return 'test'
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
