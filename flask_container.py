@@ -40,7 +40,7 @@ def list():
     # data = request.get_json(force=True)
     return items.get_items().to_json(orient='records')
 
-@app.route('/add')
+@app.route('/add',methods=["POST"])
 def add():
     data = request.get_json(force=True)
     # return 'Hello, World!'
