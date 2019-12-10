@@ -5,7 +5,7 @@ class Items:
     def __init__(self):
         self.df = pd.read_csv('Products.csv')
 
-    def add(self, item, save=True):
+    def add(self, item, save=False):
         self.df = self.df.append(pd.Series(item),ignore_index=True)
         if save:
             self.df.to_csv('Products.csv', index=False)
